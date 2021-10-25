@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Ndjson.AsyncStreams.Net.Http" Version="1.0.0" />
+    <PackageReference Include="Ndjson.AsyncStreams.AspNetCore.Mvc" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Ndjson.AsyncStreams.Net.Http" />
+    <None Remove="Ndjson.AsyncStreams.AspNetCore.Mvc" />
+  </ItemGroup>
+</Project>
