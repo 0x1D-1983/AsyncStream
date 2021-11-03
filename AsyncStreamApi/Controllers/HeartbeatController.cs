@@ -27,19 +27,11 @@ public class HeartbeatController : Controller
     private async IAsyncEnumerable<string> GetStream(
         [EnumeratorCancellation]CancellationToken cancel)
     {
-        while (true)
+        var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+
+        while (await timer.WaitForNextTickAsync(cancel))
         {
-            //cancel.ThrowIfCancellationRequested();
-
-            if (cancel.IsCancellationRequested)
-            {
-                break;
-            }
-
             yield return $"{DateTime.Now.ToLongTimeString()}";
-
-            await Task.Delay(1000);
         }
     }
-
 }
